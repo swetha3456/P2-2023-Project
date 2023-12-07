@@ -44,28 +44,14 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_driveProject_libraryInterfaces_Fli
         env->DeleteLocalRef(rowArray);
     }
 
-
-
-
-
-
-
-
-
-
     // Call the function here
-    // TODO
+    if (horizontalFlipValue == 1) {
+        horizontalFlip(imageVector);
+    }
 
-
-
-
-
-
-
-
-
-
-
+    if (verticalFlipValue == 1) {
+        verticalFlip(imageVector);
+    }
 
     int nrows = imageVector.size();
     int ncols = imageVector[0].size();

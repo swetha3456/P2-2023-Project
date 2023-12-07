@@ -1,4 +1,6 @@
 #include "Rotation.h"
+#include "../Pixel.h"
+using namespace std;
 
 void rotate90(vector<vector<Pixel>> &image) {
     // Check if the image is empty or has uneven dimensions
