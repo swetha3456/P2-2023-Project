@@ -9,6 +9,7 @@ public class LoadNativeLibrary {
     public static void loadNativeLibrary(String libraryName) {
         try {
             // Load the native library from the classpath resource
+            System.out.println("****" + libraryName);
             InputStream inputStream = LoadNativeLibrary.class.getClassLoader().getResourceAsStream(libraryName);
             File tempFile = File.createTempFile("temp-" + libraryName, "");
             tempFile.deleteOnExit();
@@ -19,7 +20,7 @@ public class LoadNativeLibrary {
                     out.write(buffer, 0, bytesRead);
                 }
             }
-
+            System.out.println("*****************" + tempFile.getAbsolutePath());
             // Load the native library from the temporary file
             System.load(tempFile.getAbsolutePath());
         } catch (IOException e) {

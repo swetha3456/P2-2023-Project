@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
+import com.iiitb.imageEffectApplication.libraryInterfaces.FlipInterface;
+
 @Service
 public class PhotoEffectService {
 
@@ -91,6 +93,7 @@ public class PhotoEffectService {
 
     public ResponseEntity<byte[]> applyFlipEffect(MultipartFile imageFile, int horizontalFlipValue, int verticalFlipValue) {
         try {
+
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
@@ -99,7 +102,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = FlipInterface.applyFlip(inputImage, horizontalFlipValue, verticalFlipValue); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 

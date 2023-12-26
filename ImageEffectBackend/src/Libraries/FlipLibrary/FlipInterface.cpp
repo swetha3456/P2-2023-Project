@@ -2,6 +2,7 @@
 #include "Flip.h"
 #include "../Pixel.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
 JNIEXPORT jobjectArray JNICALL Java_com_iiitb_driveProject_libraryInterfaces_FlipInterface_applyFlip
@@ -43,7 +44,7 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_driveProject_libraryInterfaces_Fli
         imageVector.push_back(rowVector);
         env->DeleteLocalRef(rowArray);
     }
-
+    
     // Call the function here
     if (horizontalFlipValue == 1) {
         horizontalFlip(imageVector);
